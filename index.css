@@ -1,0 +1,296 @@
+@font-face {
+    font-family: 'Purista';
+    src: url('fonts/Purista-SemiBold.woff2') format('woff2'),
+        url('fonts/Purista-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Purista';
+    src: url('fonts/Purista-Bold.woff2') format('woff2'),
+        url('fonts/Purista-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Purista';
+    src: url('fonts/Purista-Medium.woff2') format('woff2'),
+        url('fonts/Purista-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    font-family: 'Purista';
+}
+
+html {
+    overflow: hidden;
+}
+
+#container {
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(#1E1E1E, black);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#hotbar-container {
+    width: 100vw;
+    height: 3.5vw;
+    position: absolute;
+    bottom: 0vw;
+    border-top: 1px solid white;
+}
+
+#money-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#money-img {
+    filter: invert(1);
+    width: 2.5vw;
+    height: 2.5vw;
+    display: inline;
+    position: relative;
+    top: -0.25vw;
+}
+
+#money {
+    color: white;
+    font-size: 2.25vw;
+    font-weight: 600;
+    display: inline;
+    position: absolute;
+    top: -0.75vw;
+    left: 2.25vw;
+}
+
+#bank-container {
+    position: absolute;
+    bottom: 0;
+    left: 13vw;
+}
+
+#bank-img {
+    filter: invert(1);
+    width: 2.5vw;
+    height: 2.5vw;
+    display: inline;
+    position: relative;
+    top: -0.25vw;
+}
+
+#bank {
+    color: white;
+    font-size: 2.25vw;
+    font-weight: 600;
+    display: inline;
+    position: absolute;
+    top: -0.75vw;
+    left: 3vw;
+}
+
+#food-container {
+    position: absolute;
+    bottom: 0;
+    left: 26vw;
+}
+
+#food-img {
+    filter: invert(1);
+    width: 2.5vw;
+    height: 2.5vw;
+    display: inline;
+    position: relative;
+    top: -0.25vw;
+}
+
+#food {
+    color: white;
+    font-size: 2.25vw;
+    font-weight: 600;
+    display: inline;
+    position: absolute;
+    top: -0.75vw;
+    left: 3vw;
+}
+
+#water-container {
+    position: absolute;
+    bottom: 0;
+    left: 39vw;
+}
+
+#water-img {
+    filter: invert(1);
+    width: 2.5vw;
+    height: 2.5vw;
+    display: inline;
+    position: relative;
+    top: -0.25vw;
+}
+
+#water {
+    color: white;
+    font-size: 2.25vw;
+    font-weight: 600;
+    display: inline;
+    position: absolute;
+    top: -0.75vw;
+    left: 3vw;
+}
+
+#tab1-container {
+    width: 20vw;
+    height: 44.75vw;
+    background-image: linear-gradient(-50deg, rgb(151, 60, 0), rgb(58, 16, 0));
+    border: 0.35vw solid transparent;
+    cursor: pointer;
+    position: absolute;
+    top: 0vw;
+    left: 0vw;
+    z-index: 10;
+}
+
+#tab1-container:hover {
+    border: 5px solid white;
+    transition: border ease-in-out 0.25s;
+}
+
+#tab1-img {
+    width: 10vw;
+    height: 10vw;
+    filter: brightness(0) invert(1);
+    transform: rotate(30deg);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vw;
+    position: relative;
+    left: -1vw;
+}
+
+#tab1-text {
+    color: white;
+    font-size: 4vw;
+    text-align: center;
+    margin-left: -1vw;
+}
+
+#tab2-container {
+    width: 20vw;
+    height: 44.75vw;
+    background-image: linear-gradient(-50deg, rgb(4, 0, 255), rgb(6, 0, 58));
+    border: 0.35vw solid transparent;
+    cursor: pointer;
+    position: absolute;
+    top: 0vw;
+    left: 20.75vw;
+    z-index: 10;
+}
+
+#tab2-container:hover {
+    border: 5px solid white;
+    transition: border ease-in-out 0.25s;
+}
+
+#tab2-img {
+    width: 10vw;
+    height: 10vw;
+    filter: brightness(0) invert(1);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vw;
+    position: relative;
+}
+
+#tab2-text {
+    color: white;
+    font-size: 4vw;
+    text-align: center;
+}
+
+#inventory-container {
+    width: 99vw;
+    height: 43vw;
+    background-color: #1E1E1E;
+    z-index: 100;
+    position: absolute;
+    margin: 0.5vw;
+    border: 1px solid white;
+    visibility: hidden;
+}
+
+#inventory-title {
+    color: white;
+    font-size: 3vw;
+    text-align: center;
+    font-weight: bold;
+}
+
+/*
+
+Old Inventory System
+
+#wrapper div {
+    display: inline-block;
+    height: 5vw;
+    width: 5vw;
+    background-image: linear-gradient(135deg, rgba(109, 109, 109, 1), rgba(51, 51, 51, 0.25));
+    border: 2px solid gray;
+}
+
+*/
+
+#items-container {
+    width: 70vw;
+    height: 37.5vw;
+    background-image: linear-gradient(135deg, rgba(109, 109, 109, 1), rgba(51, 51, 51, 0.25));
+    border: 1px solid white;
+    position: absolute;
+    top: 4.5vw;
+    left: 1vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+::-moz-selection { /* Code for Firefox */
+    color: white;
+    background: black;
+}
+  
+::selection {
+    color: white;
+    background: black;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

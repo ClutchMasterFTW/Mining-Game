@@ -1,0 +1,9 @@
+- F3 Inventory menu
+- Crafting (including requirements)
+- Mining (like monolith)
+- Food/Water that you have to buy
+- You can sell anything
+- Tutorial
+- LEVEL SYSTEM (That increases as you level up)
+- Give all items a description
+- Make a monomarket for all items

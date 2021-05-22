@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title>Mining Game</title>
+    <head>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body onkeypress="openInventory(event)">
+        <div id="container">
+            <!--Tabs-->
+            <div id="tab1-container">
+                <img src="images/pickaxe.png" id="tab1-img">
+                <div id="tab1-text">Mine</div>
+            </div>
+            <div id="tab2-container">
+                <img src="images/craft.png" id="tab2-img">
+                <div id="tab2-text">Craft</div>
+            </div>
+            <!--Hotbar-->
+            <div id="hotbar-container">
+                <div id="money-container" title="Money">
+                    <img src="images/dollar.png" id="money-img">
+                    <div id="money">0</div>
+                </div>
+                <div id="bank-container" title="Bank">
+                    <img src="images/credit card.png" id="bank-img">
+                    <div id="bank">$0</div>
+                </div>
+                <div id="food-container" title="Food">
+                    <img src="images/food.png" id="food-img">
+                    <div id="food">80/100</div>
+                </div>
+                <div id="water-container" title="Water">
+                    <img src="images/water.png" id="water-img">
+                    <div id="water">80/100</div>
+                </div>
+            </div>
+            <!--ATM-->
+            <div id="atm-container">
+                <div id="screen-container">
+                    <div id="screen">Please input your ATM card.</div>
+                </div>
+                <div id="input-slot"></div>
+            </div>
+            <!--Inventory-->
+            <div id="inventory-container">
+                <div id="inventory-title">Inventory</div>
+                <!--Old Inventory System
+                <section id="wrapper">
+
+                </section> -->
+                <div id="items-container">
+
+                </div>
+            </div>
+        </div>
+        <script src="index.js"></script>
+        <!--Version 0.1a 5/21/2021-->
+    </body>
+</html>
