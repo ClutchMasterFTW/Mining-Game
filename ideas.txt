@@ -1,4 +1,4 @@
-- F3 Inventory menu
+- F3/Q Inventory menu
 - Crafting (including requirements)
 - Mining (like monolith)
 - Food/Water that you have to buy

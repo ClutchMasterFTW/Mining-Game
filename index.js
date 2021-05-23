@@ -162,11 +162,16 @@ function createInventory() {
         item.id = "item" + i;
         item.style.height = "5vw";
         item.style.border = "1px solid white";
+        item.style.cursor = "pointer";
+        item.setAttribute("onclick", "alert('test')")
 
         var itemImage = document.createElement("img");
         itemImage.id = "item-image" + i;
         itemImage.style.width = "4vw";
         itemImage.style.height = "4vw";
+        itemImage.style.position = "relative";
+        itemImage.style.top = "0.5vw";
+        itemImage.style.left = "0.5vw";
         if(items[i].rarity == "item") {
             itemImage.style.border = "1px solid gray";
             itemImage.style.backgroundImage = "linear-gradient(135deg, rgba(109, 109, 109, 1), rgba(51, 51, 51, 0.25))";
@@ -199,10 +204,22 @@ function createInventory() {
             itemImage.style.backgroundImage = "linear-gradient(135deg, rgba(0, 255, 0, 1), rgba(174, 255, 0, 0.35), rgba(255, 0, 0, 0.25))";
         }
         itemImage.setAttribute("src", "images/items/" + items[i].image + ".png");
+        itemImage.setAttribute("title", items[i].name);
+
+        var itemName = document.createElement("div");
+        itemName.id = "item-name" + i;
+        itemName.style.color = "white";
+        itemName.style.fontSize = "1.5vw";
+        itemName.style.fontWeight = "600";
+        itemName.style.position = "relative";
+        itemName.style.top = "-4vw";
+        itemName.style.left = "5vw";
+        itemName.innerHTML = items[i].name;
 
         var main = document.getElementById("items-container");
         main.appendChild(item);
         item.appendChild(itemImage);
+        item.appendChild(itemName);
     }
 }
 
@@ -218,5 +235,19 @@ function openInventory(event) {
     } else if(key == "q" && toggled == true) {
         document.getElementById("inventory-container").style.visibility = "hidden";
         toggled = false;
+    }
+}
+
+function openTab(tab) {
+    if(tab == 1) {
+
+    } else if(tab == 2) {
+        
+    } else if(tab == 3) {
+
+    } else if(tab == 4) {
+
+    } else if(tab == 5) {
+        
     }
 }

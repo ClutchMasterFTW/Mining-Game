@@ -151,10 +151,10 @@ html {
 }
 
 #tab1-container {
-    width: 20vw;
+    width: 19.5vw;
     height: 44.75vw;
     background-image: linear-gradient(-50deg, rgb(151, 60, 0), rgb(58, 16, 0));
-    border: 0.35vw solid transparent;
+    border: 0.25vw solid transparent;
     cursor: pointer;
     position: absolute;
     top: 0vw;
@@ -163,7 +163,7 @@ html {
 }
 
 #tab1-container:hover {
-    border: 5px solid white;
+    border: 0.25vw solid white;
     transition: border ease-in-out 0.25s;
 }
 
@@ -188,19 +188,19 @@ html {
 }
 
 #tab2-container {
-    width: 20vw;
+    width: 19.5vw;
     height: 44.75vw;
     background-image: linear-gradient(-50deg, rgb(4, 0, 255), rgb(6, 0, 58));
-    border: 0.35vw solid transparent;
+    border: 0.25vw solid transparent;
     cursor: pointer;
     position: absolute;
     top: 0vw;
-    left: 20.75vw;
+    left: 20vw;
     z-index: 10;
 }
 
 #tab2-container:hover {
-    border: 5px solid white;
+    border: 0.25vw solid white;
     transition: border ease-in-out 0.25s;
 }
 
@@ -216,6 +216,108 @@ html {
 }
 
 #tab2-text {
+    color: white;
+    font-size: 4vw;
+    text-align: center;
+}
+
+#tab3-container {
+    width: 19.5vw;
+    height: 44.75vw;
+    background-image: linear-gradient(-50deg, rgb(255, 0, 179), rgb(58, 0, 55));
+    border: 0.25vw solid transparent;
+    cursor: pointer;
+    position: absolute;
+    top: 0vw;
+    left: 40vw;
+    z-index: 10;
+}
+
+#tab3-container:hover {
+    border: 0.25vw solid white;
+    transition: border ease-in-out 0.25s;
+}
+
+#tab3-img {
+    width: 10vw;
+    height: 10vw;
+    filter: brightness(0) invert(1);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vw;
+    position: relative;
+}
+
+#tab3-text {
+    color: white;
+    font-size: 4vw;
+    text-align: center;
+}
+
+#tab4-container {
+    width: 19.5vw;
+    height: 44.75vw;
+    background-image: linear-gradient(-50deg, rgb(255, 230, 0), rgb(58, 49, 0));
+    border: 0.25vw solid transparent;
+    cursor: pointer;
+    position: absolute;
+    top: 0vw;
+    left: 60vw;
+    z-index: 10;
+}
+
+#tab4-container:hover {
+    border: 0.25vw solid white;
+    transition: border ease-in-out 0.25s;
+}
+
+#tab4-img {
+    width: 10vw;
+    height: 10vw;
+    filter: brightness(0) invert(1);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vw;
+    position: relative;
+}
+
+#tab4-text {
+    color: white;
+    font-size: 4vw;
+    text-align: center;
+}
+
+#tab5-container {
+    width: 19.5vw;
+    height: 44.75vw;
+    background-image: linear-gradient(-50deg, rgb(5, 144, 0), rgb(9, 58, 0));
+    border: 0.25vw solid transparent;
+    cursor: pointer;
+    position: absolute;
+    top: 0vw;
+    left: 80vw;
+    z-index: 10;
+}
+
+#tab5-container:hover {
+    border: 0.25vw solid white;
+    transition: border ease-in-out 0.25s;
+}
+
+#tab5-img {
+    width: 10vw;
+    height: 10vw;
+    filter: brightness(0) invert(1);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vw;
+    position: relative;
+}
+
+#tab5-text {
     color: white;
     font-size: 4vw;
     text-align: center;

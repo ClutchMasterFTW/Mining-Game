@@ -7,13 +7,25 @@
     <body onkeypress="openInventory(event)">
         <div id="container">
             <!--Tabs-->
-            <div id="tab1-container">
+            <div id="tab1-container" onclick="openTab(1)">
                 <img src="images/pickaxe.png" id="tab1-img">
                 <div id="tab1-text">Mine</div>
             </div>
-            <div id="tab2-container">
+            <div id="tab2-container" onclick="openTab(2)">
                 <img src="images/craft.png" id="tab2-img">
                 <div id="tab2-text">Craft</div>
+            </div>
+            <div id="tab3-container" onclick="openTab(3)">
+                <img src="images/drugs.png" id="tab3-img">
+                <div id="tab3-text">Drugs</div>
+            </div>
+            <div id="tab4-container" onclick="openTab(4)">
+                <img src="images/stores.png" id="tab4-img">
+                <div id="tab4-text">Market</div>
+            </div>
+            <div id="tab5-container" onclick="openTab(5)">
+                <img src="images/other.png" id="tab5-img">
+                <div id="tab5-text">Other</div>
             </div>
             <!--Hotbar-->
             <div id="hotbar-container">
@@ -54,6 +66,6 @@
             </div>
         </div>
         <script src="index.js"></script>
-        <!--Version 0.1a 5/21/2021-->
+        <!--Version 0.15a 5/23/2021-->
     </body>
 </html>
