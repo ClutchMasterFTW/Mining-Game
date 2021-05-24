@@ -7,3 +7,8 @@
 - LEVEL SYSTEM (That increases as you level up)
 - Give all items a description
 - Make a monomarket for all items
+- Crafting takes time
+- Levels are multiplied by 0.1x every time you level up
+- Crushers are under crafting
+- Multiple crushers can be purchased ($40,000+)
+- Raiding Power plant

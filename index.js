@@ -82,7 +82,7 @@ listItems();
 */
 
 var items = [
-    item0 = {
+    /*item0 = {
         name: "Grenade Ammo",
         image: "ammo_cw_gl",
         price: null,
@@ -122,7 +122,7 @@ var items = [
         name: "Christmas Tree",
         image: "christmas_tree",
         price: null,
-        rarity: "christmas"
+        rarity: "festive:christmas"
     },
     item7 = {
         name: "Adrealine",
@@ -153,7 +153,140 @@ var items = [
         image: "crafting1",
         price: null,
         rarity: "multiplier"
-    }
+    }*/
+    {
+        name: "Stone Chunk",
+        image: "mat_stonechunk",
+        price: 3,
+        rarity: "item",
+        amount: 0
+    },
+    {
+        name: "Copper Chunk",
+        image: "mat_copperchunk_2",
+        price: 11,
+        rarity: "item",
+        amount: 0
+    },
+    {
+        name: "Crushed Copper",
+        image: "mat_copper",
+        price: 5,
+        rarity: "item",
+        amount: 0
+    },
+    {
+        name: "Copper Ingot",
+        image: "mat_metal",
+        price: 52,
+        rarity: "item",
+        amount: 0
+    },
+    {
+        name: "Coal Chunk",
+        image: "mat_coalchunk_1",
+        price: 15,
+        rarity: "item",
+        amount: 0
+    },
+    {
+        name: "Crushed Coal",
+        image: "mat_coal",
+        price: 7,
+        rarity: "item",
+        amount: 0
+    },
+    {
+        name: "Iron Chunk",
+        image: "mat_ironchunk_3",
+        price: 23,
+        rarity: "item",
+        amount: 0
+    },
+    {
+        name: "Crushed Iron",
+        image: "mat_iron",
+        price: 8.5,
+        rarity: "item",
+        amount: 0
+    },
+    {
+        name: "Iron Ingot",
+        image: "mat_metal_iron_1",
+        price: 88,
+        rarity: "item",
+        amount: 0
+    },
+    {
+        name: "Steel Ingot",
+        image: "mat_metal_steel_1",
+        price: 325,
+        rarity: "item",
+        amount: 0
+    },
+    {
+        name: "Silver Chunk",
+        image: "mat_silverchunk_5",
+        price: 29,
+        rarity: "item",
+        amount: 0
+    },
+    {
+        name: "Crushed Silver",
+        image: "mat_silver",
+        price: 10,
+        rarity: "item",
+        amount: 0
+    },
+    {
+        name: "Silver Ingot",
+        image: "mat_metal_silver_3",
+        price: 112,
+        rarity: "item",
+        amount: 0
+    },
+    {
+        name: "Gold Chunk",
+        image: "mat_goldchunk_4",
+        price: 37,
+        rarity: "item",
+        amount: 0
+    },
+    {
+        name: "Crushed Gold",
+        image: "mat_gold",
+        price: 13,
+        rarity: "item",
+        amount: 0
+    },
+    {
+        name: "Gold Ingot",
+        image: "mat_metal_gold_2",
+        price: 142,
+        rarity: "item",
+        amount: 0
+    },
+    {
+        name: "Titanium Chunk",
+        image: "mat_titaniumchunk_6",
+        price: 45,
+        rarity: "item",
+        amount: 0
+    },
+    {
+        name: "Crushed Titanium",
+        image: "mat_titanium",
+        price: 15,
+        rarity: "item",
+        amount: 0
+    },
+    {
+        name: "Titanium Ingot",
+        image: "mat_metal_titanium_4",
+        price: 200,
+        rarity: "item",
+        amount: 0
+    },
 ];
 
 function createInventory() {
@@ -163,7 +296,7 @@ function createInventory() {
         item.style.height = "5vw";
         item.style.border = "1px solid white";
         item.style.cursor = "pointer";
-        item.setAttribute("onclick", "alert('test')")
+        item.setAttribute("onclick", "alert('test')");
 
         var itemImage = document.createElement("img");
         itemImage.id = "item-image" + i;
@@ -173,34 +306,34 @@ function createInventory() {
         itemImage.style.top = "0.5vw";
         itemImage.style.left = "0.5vw";
         if(items[i].rarity == "item") {
-            itemImage.style.border = "1px solid gray";
+            itemImage.style.border = "2px solid gray";
             itemImage.style.backgroundImage = "linear-gradient(135deg, rgba(109, 109, 109, 1), rgba(51, 51, 51, 0.25))";
         } else if(items[i].rarity == "pistol") {
-            itemImage.style.border = "1px solid #006eff";
+            itemImage.style.border = "2px solid #006eff";
             itemImage.style.backgroundImage = "linear-gradient(135deg, rgba(87, 142, 214, 1), rgba(0, 110, 225, 0.25))";
         } else if(items[i].rarity == "rifle") {
-            itemImage.style.border = "1px solid #ff8c00";
+            itemImage.style.border = "2px solid #ff8c00";
             itemImage.style.backgroundImage = "linear-gradient(135deg, rgba(252, 182, 95, 1), rgba(255, 140, 0, 0.25))";
         } else if(items[i].rarity == "knife") {
-            itemImage.style.border = "1px solid #ff0000";
+            itemImage.style.border = "2px solid #ff0000";
             itemImage.style.backgroundImage = "linear-gradient(135deg, rgba(249, 122, 122, 1), rgba(255, 0, 0, 0.25))";
         } else if(items[i].rarity == "shotgun") {
-            itemImage.style.border = "1px solid #7f00ff";
+            itemImage.style.border = "2px solid #7f00ff";
             itemImage.style.backgroundImage = "linear-gradient(135deg, rgba(183, 112, 255, 1), rgba(127, 0, 255, 0.25))";
         } else if(items[i].rarity == "exotic") {
-            itemImage.style.border = "1px solid #eeff00";
+            itemImage.style.border = "2px solid #eeff00";
             itemImage.style.backgroundImage = "linear-gradient(135deg, rgba(245, 255, 117, 1), rgba(238, 255, 0, 0.25))";
         } else if(items[i].rarity == "police") {
-            itemImage.style.border = "1px solid #0015ff";
+            itemImage.style.border = "2px solid #0015ff";
             itemImage.style.backgroundImage = "linear-gradient(135deg, rgba(124, 135, 255, 1), rgba(0, 21, 255, 0.25))";
         } else if(items[i].rarity == "medical") {
-            itemImage.style.border = "1px solid #ff008c";
+            itemImage.style.border = "2px solid #ff008c";
             itemImage.style.backgroundImage = "linear-gradient(135deg, rgba(255, 150, 207, 1), rgba(255, 0, 140, 0.25))";
         } else if(items[i].rarity == "multiplier") {
-            itemImage.style.border = "1px solid #000000";
+            itemImage.style.border = "2px solid #000000";
             itemImage.style.backgroundImage = "linear-gradient(135deg, rgba(137, 137, 137, 1), rgba(0, 0, 0, 0.25))";
-        } else if(items[i].rarity == "christmas") {
-            itemImage.style.border = "1px solid #ff0000";
+        } else if(items[i].rarity == "festive:christmas") {
+            itemImage.style.border = "2px solid #ff0000";
             itemImage.style.backgroundImage = "linear-gradient(135deg, rgba(0, 255, 0, 1), rgba(174, 255, 0, 0.35), rgba(255, 0, 0, 0.25))";
         }
         itemImage.setAttribute("src", "images/items/" + items[i].image + ".png");
@@ -239,15 +372,84 @@ function openInventory(event) {
 }
 
 function openTab(tab) {
+    var mine = document.getElementById("tab1-container");
+    var craft = document.getElementById("tab2-container");
+    var drugs = document.getElementById("tab3-container");
+    var market = document.getElementById("tab4-container");
+    var other = document.getElementById("tab5-container");
     if(tab == 1) {
+        //Initiate Mining Page
+        mine.style.visibility = "hidden";
+        craft.style.visibility = "hidden";
+        drugs.style.visibility = "hidden";
+        market.style.visibility = "hidden";
+        other.style.visibility = "hidden";
+
 
     } else if(tab == 2) {
-        
-    } else if(tab == 3) {
+        //Initiate Crafting Page
+        mine.style.visibility = "hidden";
+        craft.style.visibility = "hidden";
+        drugs.style.visibility = "hidden";
+        market.style.visibility = "hidden";
+        other.style.visibility = "hidden";
 
+
+    } else if(tab == 3) {
+        //Initiate Drug Page
+        mine.style.visibility = "hidden";
+        craft.style.visibility = "hidden";
+        drugs.style.visibility = "hidden";
+        market.style.visibility = "hidden";
+        other.style.visibility = "hidden";
+
+        document.getElementById("drugs-tab1-container").style.visibility = "visible";
+        document.getElementById("drugs-tab2-container").style.visibility = "visible";
+        document.getElementById("drugs-tab3-container").style.visibility = "visible";
+        document.getElementById("drugs-tab4-container").style.visibility = "visible";
     } else if(tab == 4) {
+        //Initiate Market Page
+        mine.style.visibility = "hidden";
+        craft.style.visibility = "hidden";
+        drugs.style.visibility = "hidden";
+        market.style.visibility = "hidden";
+        other.style.visibility = "hidden";
+
 
     } else if(tab == 5) {
-        
+        //Initiate Other Page
+        mine.style.visibility = "hidden";
+        craft.style.visibility = "hidden";
+        drugs.style.visibility = "hidden";
+        market.style.visibility = "hidden";
+        other.style.visibility = "hidden";
+
+
+    }
+}
+
+function back(page) {
+    var mine = document.getElementById("tab1-container");
+    var craft = document.getElementById("tab2-container");
+    var drugs = document.getElementById("tab3-container");
+    var market = document.getElementById("tab4-container");
+    var other = document.getElementById("tab5-container");
+    if(page == 1) {
+        document.getElementById("drugs-tab1-container").style.visibility = "hidden";
+        document.getElementById("drugs-tab2-container").style.visibility = "hidden";
+        document.getElementById("drugs-tab3-container").style.visibility = "hidden";
+        document.getElementById("drugs-tab4-container").style.visibility = "hidden";
+
+        mine.style.visibility = "visible";
+        craft.style.visibility = "visible";
+        drugs.style.visibility = "visible";
+        market.style.visibility = "visible";
+        other.style.visibility = "visible";
+    }
+}
+
+function sortInv(type) {
+    if(type == 1) {
+        //Sort Alphabetically
     }
 }
