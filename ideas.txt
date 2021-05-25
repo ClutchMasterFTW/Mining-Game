@@ -12,3 +12,4 @@
 - Crushers are under crafting
 - Multiple crushers can be purchased ($40,000+)
 - Raiding Power plant
+- Daily Rewards

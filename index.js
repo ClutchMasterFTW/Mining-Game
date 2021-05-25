@@ -2,13 +2,17 @@
 var money = 0;
 var food = 80;
 var water = 80;
+var health = 100;
 
 var foodConsumption = setInterval(function() {
     if(food > 0) {
         food--;
         document.getElementById("food").innerHTML = food + "/100";
+        foodDyingVariable = false;
     } else if(food <= 0) {
         //Start Dying
+        foodDyingVariable = true;
+        foodDying();
     }
 }, 8000);
 
@@ -16,13 +20,82 @@ var waterConsumption = setInterval(function() {
     if(water > 0) {
         water--;
         document.getElementById("water").innerHTML = water + "/100";
+        waterDyingVariable = false;
     } else if(water <= 0) {
         //Start Dying
+        waterDyingVariable = true;
+        waterDying();
     }
 }, 7000);
 
+function waterDying() {
+    if(waterDyingVariable == true) {
+        waterDyingInterval = setInterval(function() {
+            if(health <= 0) {
+                //Critical Condition
+                document.getElementById("status-text").innerHTML = "Critical Condition!";
+                document.getElementById("status-text").style.color = "red";
+                document.getElementById("status-text").style.fontWeight = "bold";
+                
+                startCritical();
+            } else {
+                health--;
+                document.getElementById("health").style.visibility = "visible";
+                document.getElementById("health").innerHTML = "Health Remaining: " + health;
+            }
+        }, 2000);
+        document.getElementById("status-container").style.visibility = "visible";
+    } else if(waterDyingVariable == false) {
+        clearInterval(waterDyingInterval);
+        document.getElementById("status-container").style.visibility = "hidden";
+    }
+}
 
+function foodDying() {
+    if(foodDyingVariable == true) {
+        foodDyingInterval = setInterval(function() {
+            if(health <= 0) {
+                //Critical Condition
+                document.getElementById("status-text").innerHTML = "Critical Condition!";
+                document.getElementById("status-text").style.color = "red";
+                document.getElementById("status-text").style.fontWeight = "bold";
+                
+                startCritical();
+            } else {
+                health--;
+                document.getElementById("health").style.visibility = "visible";
+                document.getElementById("health").innerHTML = "Health Remaining: " + health;
+            }
+        }, 2000);
+        document.getElementById("status-container").style.visibility = "visible";
+    } else if(foodDyingVariable == false) {
+        clearInterval(foodDyingInterval);
+        document.getElementById("status-container").style.visibility = "hidden";
+    }
+}
 
+var isCriticalActive = true;
+
+function startCritical() {
+    if(isCriticalActive == true && health <= 0) {
+        isCriticalActive = false;
+        sec = 120;
+        var deathInterval = setInterval(function() {
+            if(sec != 0) {
+                sec--;
+                document.getElementById("health").innerHTML = "Time remaining: " + sec + " seconds.";
+            } else {
+                document.getElementById("status-text").innerHTML = "You are Deceased.";
+                document.getElementById("status-text").style.color = "black";
+                document.getElementById("status-text").style.fontWeight = "bold";
+                clearInterval(waterDyingInterval);
+                clearInterval(foodDyingInterval);
+            }
+        }, 1000);
+    } else if(health > 0) {
+        clearInterval(deathInterval);
+    }
+}
 
 /*
 
@@ -372,23 +445,25 @@ function openInventory(event) {
 }
 
 function openTab(tab) {
-    var mine = document.getElementById("tab1-container");
+    var harvest = document.getElementById("tab1-container");
     var craft = document.getElementById("tab2-container");
     var drugs = document.getElementById("tab3-container");
     var market = document.getElementById("tab4-container");
     var other = document.getElementById("tab5-container");
     if(tab == 1) {
         //Initiate Mining Page
-        mine.style.visibility = "hidden";
+        harvest.style.visibility = "hidden";
         craft.style.visibility = "hidden";
         drugs.style.visibility = "hidden";
         market.style.visibility = "hidden";
         other.style.visibility = "hidden";
 
-
+        document.getElementById("harvest-tab1-container").style.visibility = "visible";
+        document.getElementById("harvest-tab2-container").style.visibility = "visible";
+        document.getElementById("harvest-tab3-container").style.visibility = "visible";
     } else if(tab == 2) {
         //Initiate Crafting Page
-        mine.style.visibility = "hidden";
+        harvest.style.visibility = "hidden";
         craft.style.visibility = "hidden";
         drugs.style.visibility = "hidden";
         market.style.visibility = "hidden";
@@ -397,7 +472,7 @@ function openTab(tab) {
 
     } else if(tab == 3) {
         //Initiate Drug Page
-        mine.style.visibility = "hidden";
+        harvest.style.visibility = "hidden";
         craft.style.visibility = "hidden";
         drugs.style.visibility = "hidden";
         market.style.visibility = "hidden";
@@ -409,7 +484,7 @@ function openTab(tab) {
         document.getElementById("drugs-tab4-container").style.visibility = "visible";
     } else if(tab == 4) {
         //Initiate Market Page
-        mine.style.visibility = "hidden";
+        harvest.style.visibility = "hidden";
         craft.style.visibility = "hidden";
         drugs.style.visibility = "hidden";
         market.style.visibility = "hidden";
@@ -418,7 +493,7 @@ function openTab(tab) {
 
     } else if(tab == 5) {
         //Initiate Other Page
-        mine.style.visibility = "hidden";
+        harvest.style.visibility = "hidden";
         craft.style.visibility = "hidden";
         drugs.style.visibility = "hidden";
         market.style.visibility = "hidden";
@@ -429,7 +504,7 @@ function openTab(tab) {
 }
 
 function back(page) {
-    var mine = document.getElementById("tab1-container");
+    var harvest = document.getElementById("tab1-container");
     var craft = document.getElementById("tab2-container");
     var drugs = document.getElementById("tab3-container");
     var market = document.getElementById("tab4-container");
@@ -440,7 +515,17 @@ function back(page) {
         document.getElementById("drugs-tab3-container").style.visibility = "hidden";
         document.getElementById("drugs-tab4-container").style.visibility = "hidden";
 
-        mine.style.visibility = "visible";
+        harvest.style.visibility = "visible";
+        craft.style.visibility = "visible";
+        drugs.style.visibility = "visible";
+        market.style.visibility = "visible";
+        other.style.visibility = "visible";
+    } else if(page == 2) {
+        document.getElementById("harvest-tab1-container").style.visibility = "hidden";
+        document.getElementById("harvest-tab2-container").style.visibility = "hidden";
+        document.getElementById("harvest-tab3-container").style.visibility = "hidden";
+    
+        harvest.style.visibility = "visible";
         craft.style.visibility = "visible";
         drugs.style.visibility = "visible";
         market.style.visibility = "visible";
@@ -451,5 +536,7 @@ function back(page) {
 function sortInv(type) {
     if(type == 1) {
         //Sort Alphabetically
+    } else if(type == 2) {
+        //Sort by Quantity
     }
 }

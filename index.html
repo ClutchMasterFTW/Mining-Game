@@ -9,7 +9,7 @@
             <!--Tabs-->
             <div id="tab1-container" onclick="openTab(1)">
                 <img src="images/pickaxe.png" id="tab1-img">
-                <div id="tab1-text">Mine</div>
+                <div id="tab1-text">Harvest</div>
             </div>
             <div id="tab2-container" onclick="openTab(2)">
                 <img src="images/craft.png" id="tab2-img">
@@ -66,10 +66,22 @@
                 <div id="sorting-text">Sorting</div>
                 <div id="sort-container">
                     <img src="images/sort alphabetically.png" id="sort-alphabetically" title="Sort Alphabetically" onclick="sortInv(1)">
+                    <img src="images/quantity.png" id="sort-quantity" title="Sort by Quantity" onclick="sortInv(2)">
                 </div>
             </div>
-            <!--Mining Tab-->
-
+            <!--Harvest Tab-->
+                <div id="harvest-tab1-container">
+                    <img src="images/mining.png" id="harvest-tab1-img">
+                    <div id="harvest-tab1-text">Mineshaft</div>
+                </div>
+                <div id="harvest-tab2-container">
+                    <img src="images/woodcutting.png" id="harvest-tab2-img">
+                    <div id="harvest-tab2-text">Woodcutting</div>
+                </div>
+                <div id="harvest-tab3-container" onclick="back(2)">
+                    <img src="images/back.png" id="harvest-tab3-img">
+                    <div id="harvest-tab3-text">Back</div>
+                </div>
             <!--Craft Tab-->
 
             <!--Drugs Tab-->
@@ -89,12 +101,21 @@
                     <img src="images/back.png" id="drugs-tab4-img">
                     <div id="drugs-tab4-text">Back</div>
                 </div>
+                <!--Cook Section-->
+                
             <!--Market Tab-->
 
             <!--Other Tab-->
             <!--Atm, levels, etc.-->
+
+            <!--Status/Death State-->
+            <div id="status-container">
+                <div id="status-title">Status:</div>
+                <div id="status-text">Currently Dying!</div>
+                <div id="health">Health Remaining: 100</div>
+            </div>
         </div>
         <script src="index.js"></script>
-        <!--Version 0.18a 5/24/2021-->
+        <!--Version 0.2a 5/24/2021-->
     </body>
 </html>
