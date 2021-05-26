@@ -475,6 +475,12 @@ Old Inventory System
     text-shadow: 1px 1px 1px black;
 }
 
+.clip {
+    /*background: -webkit-linear-gradient(navy, blue);*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 #drugs-tab1-container {
     width: 27.5vw;
     height: 44.75vw;

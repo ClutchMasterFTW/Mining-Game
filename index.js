@@ -379,7 +379,7 @@ function createInventory() {
         item.style.height = "5vw";
         item.style.border = "1px solid white";
         item.style.cursor = "pointer";
-        item.setAttribute("onclick", "alert('test')");
+        item.setAttribute("onclick", "showItemInfo(this.id)");
 
         var itemImage = document.createElement("img");
         itemImage.id = "item-image" + i;
@@ -465,6 +465,66 @@ function openInventory(event) {
     } else if(key == "q" && toggled == true) {
         document.getElementById("inventory-container").style.visibility = "hidden";
         toggled = false;
+    }
+}
+
+var itemDescriptionContainerCreated = false;
+
+function showItemInfo(id) {
+    var sliced = id.slice(4);
+    
+    if(itemDescriptionContainerCreated == false) {
+        itemDescriptionContainer = document.createElement("div");
+        itemDescriptionContainer.id = "item-description-container";
+        itemDescriptionContainer.style.width = "25vw";
+        itemDescriptionContainer.style.height = "37.5vw";
+        itemDescriptionContainer.style.border = "1px solid white";
+        itemDescriptionContainer.style.backgroundImage = "linear-gradient(135deg, rgba(109, 109, 109, 1), rgba(51, 51, 51, 0.25))";
+        itemDescriptionContainer.style.position = "absolute";
+        itemDescriptionContainer.style.top = "4.5vw";
+        itemDescriptionContainer.style.left = "72vw";
+
+        itemDescriptionName = document.createElement("div");
+        itemDescriptionName.id = "item-description-name";
+        if(items[sliced].rarity == "item") {
+            itemDescriptionName.style.background = "-webkit-linear-gradient(gray, white)";
+        }
+        itemDescriptionName.style.fontSize = "2.5vw";
+        itemDescriptionName.style.fontWeight = "bold";
+        itemDescriptionName.style.textAlign = "left";
+        itemDescriptionName.style.webkitBackgroundClip = "text";
+        itemDescriptionName.style.webkitTextFillColor = "transparent";
+        itemDescriptionName.innerHTML = items[sliced].name;
+
+        itemDescriptionQuantity = document.createElement("div");
+        itemDescriptionQuantity.id = "item-description-quantity";
+        //Finish
+
+        itemDescriptionText = document.createElement("div");
+        itemDescriptionText.id = "item-description-text";
+        //Finish
+
+        var main = document.getElementById("inventory-container");
+        main.appendChild(itemDescriptionContainer);
+        itemDescriptionContainer.appendChild(itemDescriptionName);
+
+        itemDescriptionContainerCreated = true;
+    } else {
+        //If the container is already created, do this instead:
+        itemDescriptionName.remove();
+        itemDescriptionName = document.createElement("div");
+        itemDescriptionName.id = "item-description-name";
+        if(items[sliced].rarity == "item") {
+            itemDescriptionName.style.background = "-webkit-linear-gradient(gray, white)";
+        }
+        itemDescriptionName.style.fontSize = "2.5vw";
+        itemDescriptionName.style.fontWeight = "bold";
+        itemDescriptionName.style.textAlign = "left";
+        itemDescriptionName.style.webkitBackgroundClip = "text";
+        itemDescriptionName.style.webkitTextFillColor = "transparent";
+        itemDescriptionName.innerHTML = items[sliced].name;
+
+        itemDescriptionContainer.appendChild(itemDescriptionName);
     }
 }
 
