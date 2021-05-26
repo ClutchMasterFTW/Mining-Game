@@ -625,7 +625,7 @@ Old Inventory System
     top: 0vw;
     left: 0vw;
     z-index: 10;
-    visibility: visible;
+    visibility: hidden;
 }
 
 #harvest-tab1-container:hover {
@@ -660,7 +660,7 @@ Old Inventory System
     top: 0vw;
     left: 42vw;
     z-index: 10;
-    visibility: visible;
+    visibility: hidden;
 }
 
 #harvest-tab2-container:hover {
@@ -695,7 +695,7 @@ Old Inventory System
     top: 0vw;
     left: 84vw;
     z-index: 10;
-    visibility: visible;
+    visibility: hidden;
 }
 
 #harvest-tab3-container:hover {

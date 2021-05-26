@@ -232,70 +232,80 @@ var items = [
         image: "mat_stonechunk",
         price: 3,
         rarity: "item",
-        amount: 0
+        amount: 0,
+        description: "A simple stone chunk, used to craft some furniture."
     },
     {
         name: "Copper Chunk",
         image: "mat_copperchunk_2",
         price: 11,
         rarity: "item",
-        amount: 0
+        amount: 0,
+        description: "Can be turned into crushed copper using a ore crusher."
     },
     {
         name: "Crushed Copper",
         image: "mat_copper",
         price: 5,
         rarity: "item",
-        amount: 0
+        amount: 0,
+        description: "Can be smelted into copper ingots using a furnace."
     },
     {
         name: "Copper Ingot",
         image: "mat_metal",
         price: 52,
         rarity: "item",
-        amount: 0
+        amount: 0,
+        description: "A odd metal which turns green after a while. Can be used to craft certain weapons."
     },
     {
         name: "Coal Chunk",
         image: "mat_coalchunk_1",
         price: 15,
         rarity: "item",
-        amount: 0
+        amount: 0,
+        description: "The most useful ore, which can be used to smelt all other ores when broken down into crushed coal."
     },
     {
         name: "Crushed Coal",
         image: "mat_coal",
         price: 7,
         rarity: "item",
-        amount: 0
+        amount: 0,
+        description: "Used to smelt other crushed ores into ingots."
     },
     {
         name: "Iron Chunk",
         image: "mat_ironchunk_3",
         price: 23,
         rarity: "item",
-        amount: 0
+        amount: 0,
+        description: "A heavy and useful ore chunk. When crushed, will yield crushed iron."
     },
     {
         name: "Crushed Iron",
         image: "mat_iron",
         price: 8.5,
         rarity: "item",
-        amount: 0
+        amount: 0,
+        description: "When paired with crushed coal, can be smelted into iron ingots."
     },
     {
         name: "Iron Ingot",
         image: "mat_metal_iron_1",
         price: 88,
         rarity: "item",
-        amount: 0
+        amount: 0,
+        description: "Shiny, yet dull. Can be used in many weapon recipes."
     },
     {
         name: "Steel Ingot",
         image: "mat_metal_steel_1",
         price: 325,
         rarity: "item",
-        amount: 0
+        amount: 0,
+        description: "An extremely strong metal. Used in many high-rise buildings due to its strength."
     },
     {
         name: "Silver Chunk",
@@ -422,10 +432,24 @@ function createInventory() {
         itemName.style.left = "5vw";
         itemName.innerHTML = items[i].name;
 
+        var itemAmount = document.createElement("div");
+        itemAmount.id = "item-amount" + i;
+        itemAmount.style.color = "white";
+        itemAmount.style.fontSize = "1.5vw";
+        itemAmount.style.fontWeight = "500";
+        itemAmount.style.position = "relative";
+        itemAmount.style.top = "-4vw";
+        itemAmount.style.left = "5vw";
+        itemAmount.innerHTML = "Quantity: " + items[i].amount;
+        ////////////////////////////////////////////////////////
+        //Change itemAmount innerHTML whenever inventory opens//
+        ////////////////////////////////////////////////////////
+
         var main = document.getElementById("items-container");
         main.appendChild(item);
         item.appendChild(itemImage);
         item.appendChild(itemName);
+        item.appendChild(itemAmount);
     }
 }
 
