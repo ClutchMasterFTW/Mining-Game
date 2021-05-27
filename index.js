@@ -489,16 +489,60 @@ function showItemInfo(id) {
         if(items[sliced].rarity == "item") {
             itemDescriptionName.style.background = "-webkit-linear-gradient(gray, white)";
         }
-        itemDescriptionName.style.fontSize = "2.5vw";
+        itemDescriptionName.style.fontSize = "2vw";
         itemDescriptionName.style.fontWeight = "bold";
         itemDescriptionName.style.textAlign = "left";
         itemDescriptionName.style.webkitBackgroundClip = "text";
         itemDescriptionName.style.webkitTextFillColor = "transparent";
+        itemDescriptionName.style.position = "relative";
+        itemDescriptionName.style.top = "-5vw";
+        itemDescriptionName.style.left = "6vw";
         itemDescriptionName.innerHTML = items[sliced].name;
 
         itemDescriptionQuantity = document.createElement("div");
         itemDescriptionQuantity.id = "item-description-quantity";
         //Finish
+
+        itemDescriptionImage = document.createElement("img");
+        itemDescriptionImage.id = "item-description-image";
+        itemDescriptionImage.style.width = "5vw";
+        itemDescriptionImage.style.height = "5vw";
+        itemDescriptionImage.style.position = "relative";
+        itemDescriptionImage.style.top = "0.5vw";
+        itemDescriptionImage.style.left = "0.5vw";
+        if(items[sliced].rarity == "item") {
+            itemDescriptionImage.style.border = "2px solid gray";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(109, 109, 109, 1), rgba(51, 51, 51, 0.25))";
+        } else if(items[sliced].rarity == "pistol") {
+            itemDescriptionImage.style.border = "2px solid #006eff";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(87, 142, 214, 1), rgba(0, 110, 225, 0.25))";
+        } else if(items[sliced].rarity == "rifle") {
+            itemDescriptionImage.style.border = "2px solid #ff8c00";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(252, 182, 95, 1), rgba(255, 140, 0, 0.25))";
+        } else if(items[sliced].rarity == "knife") {
+            itemDescriptionImage.style.border = "2px solid #ff0000";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(249, 122, 122, 1), rgba(255, 0, 0, 0.25))";
+        } else if(items[sliced].rarity == "shotgun") {
+            itemDescriptionImage.style.border = "2px solid #7f00ff";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(183, 112, 255, 1), rgba(127, 0, 255, 0.25))";
+        } else if(items[sliced].rarity == "exotic") {
+            itemDescriptionImage.style.border = "2px solid #eeff00";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(245, 255, 117, 1), rgba(238, 255, 0, 0.25))";
+        } else if(items[sliced].rarity == "police") {
+            itemDescriptionImage.style.border = "2px solid #0015ff";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(124, 135, 255, 1), rgba(0, 21, 255, 0.25))";
+        } else if(items[sliced].rarity == "medical") {
+            itemDescriptionImage.style.border = "2px solid #ff008c";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(255, 150, 207, 1), rgba(255, 0, 140, 0.25))";
+        } else if(items[sliced].rarity == "multiplier") {
+            itemDescriptionImage.style.border = "2px solid #000000";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(137, 137, 137, 1), rgba(0, 0, 0, 0.25))";
+        } else if(items[sliced].rarity == "festive:christmas") {
+            itemDescriptionImage.style.border = "2px solid #ff0000";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(0, 255, 0, 1), rgba(174, 255, 0, 0.35), rgba(255, 0, 0, 0.25))";
+        }
+        itemDescriptionImage.setAttribute("src", "images/items/" + items[sliced].image + ".png");
+        itemDescriptionImage.setAttribute("title", items[sliced].name);
 
         itemDescriptionText = document.createElement("div");
         itemDescriptionText.id = "item-description-text";
@@ -506,24 +550,72 @@ function showItemInfo(id) {
 
         var main = document.getElementById("inventory-container");
         main.appendChild(itemDescriptionContainer);
+        itemDescriptionContainer.appendChild(itemDescriptionImage);
         itemDescriptionContainer.appendChild(itemDescriptionName);
 
         itemDescriptionContainerCreated = true;
     } else {
         //If the container is already created, do this instead:
+
+        itemDescriptionImage.remove();
+        itemDescriptionImage = document.createElement("img");
+        itemDescriptionImage.id = "item-description-image";
+        itemDescriptionImage.style.width = "5vw";
+        itemDescriptionImage.style.height = "5vw";
+        itemDescriptionImage.style.position = "relative";
+        itemDescriptionImage.style.top = "0.5vw";
+        itemDescriptionImage.style.left = "0.5vw";
+        if(items[sliced].rarity == "item") {
+            itemDescriptionImage.style.border = "2px solid gray";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(109, 109, 109, 1), rgba(51, 51, 51, 0.25))";
+        } else if(items[sliced].rarity == "pistol") {
+            itemDescriptionImage.style.border = "2px solid #006eff";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(87, 142, 214, 1), rgba(0, 110, 225, 0.25))";
+        } else if(items[sliced].rarity == "rifle") {
+            itemDescriptionImage.style.border = "2px solid #ff8c00";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(252, 182, 95, 1), rgba(255, 140, 0, 0.25))";
+        } else if(items[sliced].rarity == "knife") {
+            itemDescriptionImage.style.border = "2px solid #ff0000";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(249, 122, 122, 1), rgba(255, 0, 0, 0.25))";
+        } else if(items[sliced].rarity == "shotgun") {
+            itemDescriptionImage.style.border = "2px solid #7f00ff";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(183, 112, 255, 1), rgba(127, 0, 255, 0.25))";
+        } else if(items[sliced].rarity == "exotic") {
+            itemDescriptionImage.style.border = "2px solid #eeff00";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(245, 255, 117, 1), rgba(238, 255, 0, 0.25))";
+        } else if(items[sliced].rarity == "police") {
+            itemDescriptionImage.style.border = "2px solid #0015ff";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(124, 135, 255, 1), rgba(0, 21, 255, 0.25))";
+        } else if(items[sliced].rarity == "medical") {
+            itemDescriptionImage.style.border = "2px solid #ff008c";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(255, 150, 207, 1), rgba(255, 0, 140, 0.25))";
+        } else if(items[sliced].rarity == "multiplier") {
+            itemDescriptionImage.style.border = "2px solid #000000";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(137, 137, 137, 1), rgba(0, 0, 0, 0.25))";
+        } else if(items[sliced].rarity == "festive:christmas") {
+            itemDescriptionImage.style.border = "2px solid #ff0000";
+            itemDescriptionImage.style.backgroundImage = "linear-gradient(135deg, rgba(0, 255, 0, 1), rgba(174, 255, 0, 0.35), rgba(255, 0, 0, 0.25))";
+        }
+        itemDescriptionImage.setAttribute("src", "images/items/" + items[sliced].image + ".png");
+        itemDescriptionImage.setAttribute("title", items[sliced].name);
+
         itemDescriptionName.remove();
         itemDescriptionName = document.createElement("div");
         itemDescriptionName.id = "item-description-name";
         if(items[sliced].rarity == "item") {
             itemDescriptionName.style.background = "-webkit-linear-gradient(gray, white)";
         }
-        itemDescriptionName.style.fontSize = "2.5vw";
+        itemDescriptionName.style.fontSize = "2vw";
         itemDescriptionName.style.fontWeight = "bold";
         itemDescriptionName.style.textAlign = "left";
         itemDescriptionName.style.webkitBackgroundClip = "text";
         itemDescriptionName.style.webkitTextFillColor = "transparent";
+        itemDescriptionName.style.position = "relative";
+        itemDescriptionName.style.top = "-5vw";
+        itemDescriptionName.style.left = "6vw";
         itemDescriptionName.innerHTML = items[sliced].name;
 
+        itemDescriptionContainer.appendChild(itemDescriptionImage);
         itemDescriptionContainer.appendChild(itemDescriptionName);
     }
 }
