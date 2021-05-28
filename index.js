@@ -4,6 +4,12 @@ var food = 80;
 var water = 80;
 var health = 100;
 
+//Levels
+var miningLevel = 1;
+var woodcuttingLevel = 1;
+var craftingLevel = 1;
+var chemistryLevel = 1;
+
 var foodConsumption = setInterval(function() {
     if(food > 0) {
         food--;
@@ -499,10 +505,6 @@ function showItemInfo(id) {
         itemDescriptionName.style.left = "6vw";
         itemDescriptionName.innerHTML = items[sliced].name;
 
-        itemDescriptionQuantity = document.createElement("div");
-        itemDescriptionQuantity.id = "item-description-quantity";
-        //Finish
-
         itemDescriptionImage = document.createElement("img");
         itemDescriptionImage.id = "item-description-image";
         itemDescriptionImage.style.width = "5vw";
@@ -544,19 +546,37 @@ function showItemInfo(id) {
         itemDescriptionImage.setAttribute("src", "images/items/" + items[sliced].image + ".png");
         itemDescriptionImage.setAttribute("title", items[sliced].name);
 
+        itemDescriptionQuantity = document.createElement("div");
+        itemDescriptionQuantity.id = "item-description-quantity";
+        itemDescriptionQuantity.style.fontSize = "1.5vw";
+        itemDescriptionQuantity.style.fontWeight = "600";
+        itemDescriptionQuantity.style.color = "white";
+        itemDescriptionQuantity.style.position = "relative";
+        itemDescriptionQuantity.style.top = "-5vw";
+        itemDescriptionQuantity.style.left = "6vw";
+        itemDescriptionQuantity.innerHTML = "Quantity: " + items[sliced].amount;
+
         itemDescriptionText = document.createElement("div");
         itemDescriptionText.id = "item-description-text";
-        //Finish
+        itemDescriptionText.style.color = "white";
+        itemDescriptionText.style.fontSize = "1.75vw";
+        itemDescriptionText.style.fontWeight = "500";
+        itemDescriptionText.style.position = "relative";
+        itemDescriptionText.style.top = "-5vw";
+        itemDescriptionText.style.left = "0vw";
+        itemDescriptionText.style.padding = "1vw";
+        itemDescriptionText.innerHTML = items[sliced].description;
 
         var main = document.getElementById("inventory-container");
         main.appendChild(itemDescriptionContainer);
         itemDescriptionContainer.appendChild(itemDescriptionImage);
         itemDescriptionContainer.appendChild(itemDescriptionName);
+        itemDescriptionContainer.appendChild(itemDescriptionQuantity);
+        itemDescriptionContainer.appendChild(itemDescriptionText);
 
         itemDescriptionContainerCreated = true;
     } else {
         //If the container is already created, do this instead:
-
         itemDescriptionImage.remove();
         itemDescriptionImage = document.createElement("img");
         itemDescriptionImage.id = "item-description-image";
@@ -615,8 +635,33 @@ function showItemInfo(id) {
         itemDescriptionName.style.left = "6vw";
         itemDescriptionName.innerHTML = items[sliced].name;
 
+        itemDescriptionQuantity.remove();
+        itemDescriptionQuantity = document.createElement("div");
+        itemDescriptionQuantity.id = "item-description-quantity";
+        itemDescriptionQuantity.style.fontSize = "1.5vw";
+        itemDescriptionQuantity.style.fontWeight = "600";
+        itemDescriptionQuantity.style.color = "white";
+        itemDescriptionQuantity.style.position = "relative";
+        itemDescriptionQuantity.style.top = "-5vw";
+        itemDescriptionQuantity.style.left = "6vw";
+        itemDescriptionQuantity.innerHTML = "Quantity: " + items[sliced].amount;
+
+        itemDescriptionText.remove();
+        itemDescriptionText = document.createElement("div");
+        itemDescriptionText.id = "item-description-text";
+        itemDescriptionText.style.color = "white";
+        itemDescriptionText.style.fontSize = "1.75vw";
+        itemDescriptionText.style.fontWeight = "500";
+        itemDescriptionText.style.position = "relative";
+        itemDescriptionText.style.top = "-5vw";
+        itemDescriptionText.style.left = "0vw";
+        itemDescriptionText.style.padding = "1vw";
+        itemDescriptionText.innerHTML = items[sliced].description;
+
         itemDescriptionContainer.appendChild(itemDescriptionImage);
         itemDescriptionContainer.appendChild(itemDescriptionName);
+        itemDescriptionContainer.appendChild(itemDescriptionQuantity);
+        itemDescriptionContainer.appendChild(itemDescriptionText);
     }
 }
 
@@ -706,6 +751,50 @@ function back(page) {
         drugs.style.visibility = "visible";
         market.style.visibility = "visible";
         other.style.visibility = "visible";
+    } else if(page == 3) {
+        document.getElementById("harvest-tab1-container").style.visibility = "visible";
+        document.getElementById("harvest-tab2-container").style.visibility = "visible";
+        document.getElementById("harvest-tab3-container").style.visibility = "visible";
+
+        for(i = 1; i < 9; i++) {
+            document.getElementById("mineshaft-tab" + i + "-container").style.visibility = "hidden";
+        }
+    }
+}
+
+function harvestTab(tab) {
+    if(tab == 1) {
+        for(i = 1; i < 9; i++) {
+            document.getElementById("mineshaft-tab" + i + "-container").style.visibility = "visible";
+        }
+        document.getElementById("harvest-tab1-container").style.visibility = "hidden";
+        document.getElementById("harvest-tab2-container").style.visibility = "hidden";
+        document.getElementById("harvest-tab3-container").style.visibility = "hidden";
+
+        //Mining Level Check
+        if(miningLevel >= 1) {
+            document.getElementById("mineshaft-tab1-container").style.backgroundImage = "linear-gradient(-50deg, rgb(0, 255, 13), rgb(0, 58, 0))";
+        }
+        if(miningLevel >= 6) {
+            document.getElementById("mineshaft-tab2-container").style.backgroundImage = "linear-gradient(-50deg, rgb(0, 255, 13), rgb(0, 58, 0))";
+        }
+        if(miningLevel >= 15) {
+            document.getElementById("mineshaft-tab3-container").style.backgroundImage = "linear-gradient(-50deg, rgb(0, 255, 13), rgb(0, 58, 0))";
+        }
+        if(miningLevel >= 24) {
+            document.getElementById("mineshaft-tab4-container").style.backgroundImage = "linear-gradient(-50deg, rgb(0, 255, 13), rgb(0, 58, 0))";
+        }
+        if(miningLevel >= 48) {
+            document.getElementById("mineshaft-tab5-container").style.backgroundImage = "linear-gradient(-50deg, rgb(0, 255, 13), rgb(0, 58, 0))";
+        }
+        if(miningLevel >= 62) {
+            document.getElementById("mineshaft-tab6-container").style.backgroundImage = "linear-gradient(-50deg, rgb(0, 255, 13), rgb(0, 58, 0))";
+        }
+        if(miningLevel >= 73) {
+            document.getElementById("mineshaft-tab7-container").style.backgroundImage = "linear-gradient(-50deg, rgb(0, 255, 13), rgb(0, 58, 0))";
+        }
+    } else if(tab == 2) {
+
     }
 }
 
