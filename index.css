@@ -999,3 +999,69 @@ Old Inventory System
     font-size: 2.5vw;
     text-align: center;
 }
+
+#inventory-c {
+    width: 3.5vw;
+    height: 3.5vw;
+    background-image: linear-gradient(-50deg, rgba(255, 0, 50, 0.75), rgba(58, 0, 50, 0.25));
+    border: 0.2vw solid #ff002e;
+    cursor: pointer;
+    position: absolute;
+    top: 0.25vw;
+    left: 84.5vw;
+}
+
+#inventory-c:hover {
+    background-image: linear-gradient(-50deg, rgba(150, 0, 30, 0.75), rgba(30, 0, 28, 0.25));
+    border: 0.2vw solid #a5001e;
+}
+
+#inventory {
+    width: 3.5vw;
+    height: 3.5vw;
+    filter: invert(1);
+}
+
+#skills-c {
+    width: 3.5vw;
+    height: 3.5vw;
+    background-image: linear-gradient(-50deg, rgba(255, 0, 50, 0.75), rgba(58, 0, 50, 0.25));
+    border: 0.2vw solid #ff002e;
+    cursor: pointer;
+    position: absolute;
+    top: 0.25vw;
+    left: 88.75vw;
+}
+
+#skills-c:hover {
+    background-image: linear-gradient(-50deg, rgba(150, 0, 30, 0.75), rgba(30, 0, 28, 0.25));
+    border: 0.2vw solid #a5001e;
+}
+
+#skills {
+    width: 3.5vw;
+    height: 3.5vw;
+    filter: invert(1);
+}
+
+#daily-rewards-c {
+    width: 3.5vw;
+    height: 3.5vw;
+    background-image: linear-gradient(-50deg, rgba(255, 0, 50, 0.75), rgba(58, 0, 50, 0.25));
+    border: 0.2vw solid #ff002e;
+    cursor: pointer;
+    position: absolute;
+    top: 0.25vw;
+    left: 93vw;
+}
+
+#daily-rewards-c:hover {
+    background-image: linear-gradient(-50deg, rgba(150, 0, 30, 0.75), rgba(30, 0, 28, 0.25));
+    border: 0.2vw solid #a5001e;
+}
+
+#daily-rewards {
+    width: 3.5vw;
+    height: 3.5vw;
+    filter: invert(1);
+}

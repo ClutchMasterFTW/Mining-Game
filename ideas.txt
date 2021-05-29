@@ -1,15 +1,22 @@
+ALL ACTIVE IDEAS
+(Trello page at: https://trello.com/b/qsuY4AJv/mining-game)
+
 - F3/Q Inventory menu
 - Crafting (including requirements)
 - Mining (like monolith)
 - Food/Water that you have to buy
 - You can sell anything
 - Tutorial
-- LEVEL SYSTEM (That increases as you level up)
+- LEVEL SYSTEM (EXP needed increases as you level up)
+	- Levels are multiplied by 0.1x every time you level up
 - Give all items a description
 - Make a monomarket for all items
 - Crafting takes time
-- Levels are multiplied by 0.1x every time you level up
 - Crushers are under crafting
 - Multiple crushers can be purchased ($40,000+)
-- Raiding Power plant
-- Daily Rewards
+- Different types of pickaxes and axes (that you can craft and buy)
+	- The better the pickaxe/axe, the less time it takes to mine
+- Raiding Power plant for chemicals
+- Daily Rewards (Rewards increase every 30 minutes of gameplay)
+- Commit Robberies and Raids (Using your own weapons)
+- Spawn in Menu (*A menu that can spawn anything in the game in)

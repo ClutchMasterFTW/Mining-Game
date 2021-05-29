@@ -10,6 +10,8 @@ var woodcuttingLevel = 1;
 var craftingLevel = 1;
 var chemistryLevel = 1;
 
+var currentPickaxe = null;
+
 var foodConsumption = setInterval(function() {
     if(food > 0) {
         food--;
@@ -774,6 +776,7 @@ function harvestTab(tab) {
         //Mining Level Check
         if(miningLevel >= 1) {
             document.getElementById("mineshaft-tab1-container").style.backgroundImage = "linear-gradient(-50deg, rgb(0, 255, 13), rgb(0, 58, 0))";
+            document.getElementById("mineshaft-tab1-container").setAttribute("onclick", "miningPage('stone')");
         }
         if(miningLevel >= 6) {
             document.getElementById("mineshaft-tab2-container").style.backgroundImage = "linear-gradient(-50deg, rgb(0, 255, 13), rgb(0, 58, 0))";
@@ -803,5 +806,91 @@ function sortInv(type) {
         //Sort Alphabetically
     } else if(type == 2) {
         //Sort by Quantity
+    }
+}
+
+function miningPage(material) {
+    document.getElementById("mineshaft-tab1-container").style.visibility = "hidden";
+    document.getElementById("mineshaft-tab2-container").style.visibility = "hidden";
+    document.getElementById("mineshaft-tab3-container").style.visibility = "hidden";
+    document.getElementById("mineshaft-tab4-container").style.visibility = "hidden";
+    document.getElementById("mineshaft-tab5-container").style.visibility = "hidden";
+    document.getElementById("mineshaft-tab6-container").style.visibility = "hidden";
+    document.getElementById("mineshaft-tab7-container").style.visibility = "hidden";
+    document.getElementById("mineshaft-tab8-container").style.visibility = "hidden";
+    if(material == "stone") {
+        var oreTitle = document.createElement("div");
+        oreTitle.id = "ore-title";
+        oreTitle.style.color = "white";
+        oreTitle.style.fontSize = "3vw";
+        oreTitle.style.fontWeight = "bold";
+        oreTitle.style.position = "relative";
+        oreTitle.style.top = "-8vw";
+        oreTitle.style.textAlign = "center";
+        oreTitle.innerHTML = "Stone Mineshaft";
+        var main = document.getElementById("container");
+        main.appendChild(oreTitle);
+
+        oreImage = document.createElement("img");
+        oreImage.id = "ore-image";
+        oreImage.setAttribute("src", "images/items/mat_stonechunk.png");
+        oreImage.style.width = "30vw";
+        oreImage.style.position = "absolute";
+        oreImage.style.top = "6vw";
+        oreImage.style.left = "35vw";
+        oreImage.style.cursor = "pointer";
+        oreImage.style.userSelect = "none";
+        oreImage.setAttribute("onclick", "mineOre('stone')");
+
+        var main = document.getElementById("container");
+        main.appendChild(oreTitle);
+        main.appendChild(oreImage);
+    } else if(material == "copper") {
+        
+    } else if(material == "coal") {
+        
+    } else if(material == "iron") {
+        
+    } else if(material == "silver") {
+        
+    } else if(material == "gold") {
+        
+    } else if(material == "titanium") {
+        
+    }
+}
+
+var isMaterialClicked = false;
+
+function mineOre(material) {
+    if(isMaterialClicked == false) {
+        if(material == "stone") {
+            oreImage.style.width = "35vw";
+            oreImage.style.top = "3.5vw";
+            oreImage.style.left = "32.5vw";
+            oreImage.style.cursor = "default";
+            setTimeout(function() {
+                oreImage.style.width = "30vw";
+                oreImage.style.top = "6vw";
+                oreImage.style.left = "35vw";
+            }, 100);
+            isMaterialClicked = true;
+            setTimeout(function() {
+                isMaterialClicked = false;
+                oreImage.style.cursor = "pointer";
+            }, 2000);
+        } else if(material == "copper") {
+        
+        } else if(material == "coal") {
+        
+        } else if(material == "iron") {
+        
+        } else if(material == "silver") {
+        
+        } else if(material == "gold") {
+        
+        } else if(material == "titanium") {
+        
+        }
     }
 }
