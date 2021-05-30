@@ -1065,3 +1065,63 @@ Old Inventory System
     height: 3.5vw;
     filter: invert(1);
 }
+
+#level-name {
+    color: white;
+    font-size: 2vw;
+    position: absolute;
+    top: 0.25vw;
+    right: 5.75vw;
+    user-select: none;
+    z-index: 10;
+}
+
+#player-level-xp-container {
+    border: 1px solid white;
+    position: absolute;
+    top: 3vw;
+    right: 5.75vw;
+    width: 12.5vw;
+    height: 2vw;
+    background-image: linear-gradient(rgba(30, 30, 30, 1), rgba(0, 0, 0, 1));
+    z-index: 10;
+}
+
+#player-level-xp {
+    width: 0vw;
+    height: 2vw;
+    position: absolute;
+    top: 0vw;
+    left: 0vw;
+    background-image: linear-gradient(rgba(255, 0, 0, 1), rgba(104, 0, 0, 1));
+    z-index: 10;
+}
+
+#player-level-xp-value {
+    color: white;
+    font-size: 1vw;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    vertical-align: middle;
+    line-height: 1.75vw;
+    user-select: none;
+}
+
+#player-level {
+    border: 1px solid white;
+    position: absolute;
+    top: 1vw;
+    left: 95vw;
+    width: 4vw;
+    height: 4vw;
+    background-image: linear-gradient(rgba(30, 30, 30, 1), rgba(0, 0, 0, 1));
+    z-index: 10;
+    color: white;
+    /*Depending on what the level is, should determine the actual font size, so 1 should be 3vw, 10 should be 2vw, 100 should be 1.5vw, etc*/
+    font-size: 3vw;
+    text-align: center;
+    line-height: 3.6vw;
+    vertical-align: middle;
+    user-select: none;
+}

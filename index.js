@@ -6,9 +6,20 @@ var health = 100;
 
 //Levels
 var miningLevel = 1;
+var miningLevelEXP = 0;
+var miningLevelEXPCap = 50;
+
 var woodcuttingLevel = 1;
+var woodcuttingLevelEXP = 0;
+var woodcuttingLevelCap = 50;
+
 var craftingLevel = 1;
+var craftingLevelEXP = 0;
+var craftingLevelCap = 50;
+
 var chemistryLevel = 1;
+var chemistryLevelEXP = 0;
+var chemistryLevelCap = 50;
 
 var currentPickaxe = null;
 
@@ -449,6 +460,13 @@ function createInventory() {
         itemAmount.style.top = "-4vw";
         itemAmount.style.left = "5vw";
         itemAmount.innerHTML = "Quantity: " + items[i].amount;
+
+        //Below may cause issues later...
+        var quantityInterval = setInterval(function() {
+            for(i = 0; i < items.length; i++) {
+                document.getElementById("item-amount" + i).innerHTML = "Quantity: " + items[i].amount;
+            }
+        }, 1000);
         ////////////////////////////////////////////////////////
         //Change itemAmount innerHTML whenever inventory opens//
         ////////////////////////////////////////////////////////
@@ -780,21 +798,27 @@ function harvestTab(tab) {
         }
         if(miningLevel >= 6) {
             document.getElementById("mineshaft-tab2-container").style.backgroundImage = "linear-gradient(-50deg, rgb(0, 255, 13), rgb(0, 58, 0))";
+            document.getElementById("mineshaft-tab2-container").setAttribute("onclick", "miningPage('copper')");
         }
         if(miningLevel >= 15) {
             document.getElementById("mineshaft-tab3-container").style.backgroundImage = "linear-gradient(-50deg, rgb(0, 255, 13), rgb(0, 58, 0))";
+            document.getElementById("mineshaft-tab3-container").setAttribute("onclick", "miningPage('coal')");
         }
         if(miningLevel >= 24) {
             document.getElementById("mineshaft-tab4-container").style.backgroundImage = "linear-gradient(-50deg, rgb(0, 255, 13), rgb(0, 58, 0))";
+            document.getElementById("mineshaft-tab4-container").setAttribute("onclick", "miningPage('iron')");
         }
         if(miningLevel >= 48) {
             document.getElementById("mineshaft-tab5-container").style.backgroundImage = "linear-gradient(-50deg, rgb(0, 255, 13), rgb(0, 58, 0))";
+            document.getElementById("mineshaft-tab5-container").setAttribute("onclick", "miningPage('silver')");
         }
         if(miningLevel >= 62) {
             document.getElementById("mineshaft-tab6-container").style.backgroundImage = "linear-gradient(-50deg, rgb(0, 255, 13), rgb(0, 58, 0))";
+            document.getElementById("mineshaft-tab6-container").setAttribute("onclick", "miningPage('gold')");
         }
         if(miningLevel >= 73) {
             document.getElementById("mineshaft-tab7-container").style.backgroundImage = "linear-gradient(-50deg, rgb(0, 255, 13), rgb(0, 58, 0))";
+            document.getElementById("mineshaft-tab7-container").setAttribute("onclick", "miningPage('titanium')");
         }
     } else if(tab == 2) {
 
@@ -844,17 +868,155 @@ function miningPage(material) {
         main.appendChild(oreTitle);
         main.appendChild(oreImage);
     } else if(material == "copper") {
-        
+        oreTitle = document.createElement("div");
+        oreTitle.id = "ore-title";
+        oreTitle.style.color = "white";
+        oreTitle.style.fontSize = "3vw";
+        oreTitle.style.fontWeight = "bold";
+        oreTitle.style.position = "relative";
+        oreTitle.style.top = "-8vw";
+        oreTitle.style.textAlign = "center";
+        oreTitle.innerHTML = "Copper Mineshaft";
+
+        oreImage = document.createElement("img");
+        oreImage.id = "ore-image";
+        oreImage.setAttribute("src", "images/items/mat_copperchunk_2.png");
+        oreImage.style.width = "30vw";
+        oreImage.style.position = "absolute";
+        oreImage.style.top = "6vw";
+        oreImage.style.left = "35vw";
+        oreImage.style.cursor = "pointer";
+        oreImage.style.userSelect = "none";
+        oreImage.setAttribute("onclick", "mineOre('copper')");
+
+        var main = document.getElementById("container");
+        main.appendChild(oreTitle);
+        main.appendChild(oreImage);
     } else if(material == "coal") {
-        
+        oreTitle = document.createElement("div");
+        oreTitle.id = "ore-title";
+        oreTitle.style.color = "white";
+        oreTitle.style.fontSize = "3vw";
+        oreTitle.style.fontWeight = "bold";
+        oreTitle.style.position = "relative";
+        oreTitle.style.top = "-8vw";
+        oreTitle.style.textAlign = "center";
+        oreTitle.innerHTML = "Coal Mineshaft";
+
+        oreImage = document.createElement("img");
+        oreImage.id = "ore-image";
+        oreImage.setAttribute("src", "images/items/mat_coalchunk_1.png");
+        oreImage.style.width = "30vw";
+        oreImage.style.position = "absolute";
+        oreImage.style.top = "6vw";
+        oreImage.style.left = "35vw";
+        oreImage.style.cursor = "pointer";
+        oreImage.style.userSelect = "none";
+        oreImage.setAttribute("onclick", "mineOre('coal')");
+
+        var main = document.getElementById("container");
+        main.appendChild(oreTitle);
+        main.appendChild(oreImage);
     } else if(material == "iron") {
-        
+        oreTitle = document.createElement("div");
+        oreTitle.id = "ore-title";
+        oreTitle.style.color = "white";
+        oreTitle.style.fontSize = "3vw";
+        oreTitle.style.fontWeight = "bold";
+        oreTitle.style.position = "relative";
+        oreTitle.style.top = "-8vw";
+        oreTitle.style.textAlign = "center";
+        oreTitle.innerHTML = "Iron Mineshaft";
+
+        oreImage = document.createElement("img");
+        oreImage.id = "ore-image";
+        oreImage.setAttribute("src", "images/items/mat_ironchunk_3.png");
+        oreImage.style.width = "30vw";
+        oreImage.style.position = "absolute";
+        oreImage.style.top = "6vw";
+        oreImage.style.left = "35vw";
+        oreImage.style.cursor = "pointer";
+        oreImage.style.userSelect = "none";
+        oreImage.setAttribute("onclick", "mineOre('iron')");
+
+        var main = document.getElementById("container");
+        main.appendChild(oreTitle);
+        main.appendChild(oreImage);
     } else if(material == "silver") {
-        
+        oreTitle = document.createElement("div");
+        oreTitle.id = "ore-title";
+        oreTitle.style.color = "white";
+        oreTitle.style.fontSize = "3vw";
+        oreTitle.style.fontWeight = "bold";
+        oreTitle.style.position = "relative";
+        oreTitle.style.top = "-8vw";
+        oreTitle.style.textAlign = "center";
+        oreTitle.innerHTML = "Silver Mineshaft";
+
+        oreImage = document.createElement("img");
+        oreImage.id = "ore-image";
+        oreImage.setAttribute("src", "images/items/mat_silverchunk_5.png");
+        oreImage.style.width = "30vw";
+        oreImage.style.position = "absolute";
+        oreImage.style.top = "6vw";
+        oreImage.style.left = "35vw";
+        oreImage.style.cursor = "pointer";
+        oreImage.style.userSelect = "none";
+        oreImage.setAttribute("onclick", "mineOre('silver')");
+
+        var main = document.getElementById("container");
+        main.appendChild(oreTitle);
+        main.appendChild(oreImage);
     } else if(material == "gold") {
-        
+        oreTitle = document.createElement("div");
+        oreTitle.id = "ore-title";
+        oreTitle.style.color = "white";
+        oreTitle.style.fontSize = "3vw";
+        oreTitle.style.fontWeight = "bold";
+        oreTitle.style.position = "relative";
+        oreTitle.style.top = "-8vw";
+        oreTitle.style.textAlign = "center";
+        oreTitle.innerHTML = "Gold Mineshaft";
+
+        oreImage = document.createElement("img");
+        oreImage.id = "ore-image";
+        oreImage.setAttribute("src", "images/items/mat_goldchunk_4.png");
+        oreImage.style.width = "30vw";
+        oreImage.style.position = "absolute";
+        oreImage.style.top = "6vw";
+        oreImage.style.left = "35vw";
+        oreImage.style.cursor = "pointer";
+        oreImage.style.userSelect = "none";
+        oreImage.setAttribute("onclick", "mineOre('gold')");
+
+        var main = document.getElementById("container");
+        main.appendChild(oreTitle);
+        main.appendChild(oreImage);
     } else if(material == "titanium") {
-        
+        oreTitle = document.createElement("div");
+        oreTitle.id = "ore-title";
+        oreTitle.style.color = "white";
+        oreTitle.style.fontSize = "3vw";
+        oreTitle.style.fontWeight = "bold";
+        oreTitle.style.position = "relative";
+        oreTitle.style.top = "-8vw";
+        oreTitle.style.textAlign = "center";
+        oreTitle.innerHTML = "Titanium Mineshaft";
+
+        oreImage = document.createElement("img");
+        oreImage.id = "ore-image";
+        oreImage.setAttribute("src", "images/items/mat_titaniumchunk_6.png");
+        oreImage.style.width = "30vw";
+        oreImage.style.position = "absolute";
+        oreImage.style.top = "6vw";
+        oreImage.style.left = "35vw";
+        oreImage.style.cursor = "pointer";
+        oreImage.style.userSelect = "none";
+        oreImage.setAttribute("onclick", "mineOre('titanium')");
+
+        var main = document.getElementById("container");
+        main.appendChild(oreTitle);
+        main.appendChild(oreImage);
     }
 }
 
@@ -914,10 +1076,14 @@ function mineOre(material) {
                 oreCountdownContainer.appendChild(oreCountdown);
                 oreCountdownContainer.appendChild(oreCountdownText)
 
-                var sec = 0;
+                var sec = 2;
                 var width = 0;
                 var secondInterval = setInterval(function() {
-                    sec += 0.004;
+                    if(sec > 0) {
+                        sec -= 0.004;
+                    } else {
+                        sec = 0;
+                    }
                     fixedSec = sec.toFixed(3);
                     oreCountdownText.innerHTML = fixedSec + "s";
 
@@ -930,12 +1096,104 @@ function mineOre(material) {
                     oreCountdown.remove();
                     oreCountdownText.remove();
                     clearInterval(secondInterval);
-                }, 2000);
 
-                initiateLevelIncrease("mining");
+                    var getMaterial = Math.random();
+                    if(getMaterial > 0.5) {
+                        // 50/50 chance to actually mine the ore
+                        initiateLevelIncrease("mining");
+                        for(i = 0; i < items.length; i++) {
+                            if(items[i].name === "Stone Chunk") {
+                                items[i].amount++;
+                            }
+                        }
+                    }
+                }, 2000);
             }
         } else if(material == "copper") {
-        
+            oreImage.style.width = "35vw";
+            oreImage.style.top = "3.5vw";
+            oreImage.style.left = "32.5vw";
+            oreImage.style.cursor = "default";
+            setTimeout(function() {
+                oreImage.style.width = "30vw";
+                oreImage.style.top = "6vw";
+                oreImage.style.left = "35vw";
+            }, 100);
+            isMaterialClicked = true;
+            setTimeout(function() {
+                isMaterialClicked = false;
+                oreImage.style.cursor = "pointer";
+            }, 2000);
+
+            if(isMaterialClicked = true) {
+                oreCountdownContainer = document.createElement("div");
+                oreCountdownContainer.id = "ore-countdown-container";
+                oreCountdownContainer.style.width = "30vw";
+                oreCountdownContainer.style.height = "5vw";
+                oreCountdownContainer.style.border = "1px solid white";
+                oreCountdownContainer.style.position = "absolute";
+                oreCountdownContainer.style.top = "38vw";
+                oreCountdownContainer.style.left = "35vw";
+                oreCountdownContainer.style.zIndex = "8";
+
+                oreCountdown = document.createElement("div");
+                oreCountdown.id = "ore-countdown";
+                oreCountdown.style.width = "0vw";
+                oreCountdown.style.height = "5vw";
+                oreCountdown.style.zIndex = "9";
+                oreCountdown.style.position = "absolute";
+                oreCountdown.style.top = "0vw";
+                oreCountdown.style.left = "0vw";
+                oreCountdown.style.backgroundColor = "green";
+
+                oreCountdownText = document.createElement("div");
+                oreCountdownText.id = "ore-countdown-text";
+                oreCountdownText.style.zIndex = "15";
+                oreCountdownText.style.color = "white";
+                oreCountdownText.style.fontSize = "2vw";
+                oreCountdownText.style.fontWeight = "500";
+                oreCountdownText.style.textAlign = "center";
+                oreCountdownText.style.lineHeight = "4.5vw";
+                oreCountdownText.style.position = "relative";
+
+                var main = document.getElementById("container");
+                main.appendChild(oreCountdownContainer);
+                oreCountdownContainer.appendChild(oreCountdown);
+                oreCountdownContainer.appendChild(oreCountdownText)
+
+                var sec = 2;
+                var width = 0;
+                var secondInterval = setInterval(function() {
+                    if(sec > 0) {
+                        sec -= 0.004;
+                    } else {
+                        sec = 0;
+                    }
+                    fixedSec = sec.toFixed(3);
+                    oreCountdownText.innerHTML = fixedSec + "s";
+
+                    width += (120 / 2000);
+                    oreCountdown.style.width = width + "vw";
+                }, 1);
+                
+                setTimeout(function() {
+                    oreCountdownContainer.remove();
+                    oreCountdown.remove();
+                    oreCountdownText.remove();
+                    clearInterval(secondInterval);
+
+                    var getMaterial = Math.random();
+                    if(getMaterial > 0.5) {
+                        // 50/50 chance to actually mine the ore
+                        initiateLevelIncrease("mining");
+                        for(i = 0; i < items.length; i++) {
+                            if(items[i].name === "Copper Chunk") {
+                                items[i].amount++;
+                            }
+                        }
+                    }
+                }, 2000);
+            }
         } else if(material == "coal") {
         
         } else if(material == "iron") {
