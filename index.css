@@ -1125,3 +1125,7 @@ Old Inventory System
     vertical-align: middle;
     user-select: none;
 }
+
+#level-container {
+    visibility: hidden;
+}

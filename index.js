@@ -1040,6 +1040,9 @@ function mineOre(material) {
                 oreImage.style.cursor = "pointer";
             }, 2000);
 
+            var mineSound = new Audio('audio/mine.mp3');
+            mineSound.play();
+
             if(isMaterialClicked = true) {
                 oreCountdownContainer = document.createElement("div");
                 oreCountdownContainer.id = "ore-countdown-container";
@@ -1208,8 +1211,30 @@ function mineOre(material) {
     }
 }
 
+var levelWidth = 0;
+
 function initiateLevelIncrease(task) {
     if(task == "mining") {
+        document.getElementById("level-container").style.visibility = "visible";
 
+        if((miningLevelEXP + 10) >= miningLevelEXPCap) {
+            miningLevelEXP = 0;
+            miningLevelEXPCap *= 1.1;
+            miningLevelEXPCap = miningLevelEXPCap.toFixed(0);
+            miningLevel++;
+            document.getElementById("player-level").innerHTML = miningLevel;
+            document.getElementById("player-level-xp-value").innerHTML = miningLevelEXP + "/" + miningLevelEXPCap + " EXP";
+            levelWidth = 0;
+            document.getElementById("player-level-xp").style.width = levelWidth + "vw";
+        } else {
+            miningLevelEXP += 10;
+            document.getElementById("player-level-xp-value").innerHTML = miningLevelEXP + "/" + miningLevelEXPCap + " EXP";
+            levelWidth = (12.5 / miningLevelEXPCap) * miningLevelEXP;
+            document.getElementById("player-level-xp").style.width = levelWidth + "vw";
+        }
+
+        setTimeout(function() {
+            document.getElementById("level-container").style.visibility = "hidden";
+        }, 2000);
     }//Make more tasks, like chemistry, etc.
 }
