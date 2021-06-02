@@ -779,6 +779,14 @@ function back(page) {
         for(i = 1; i < 9; i++) {
             document.getElementById("mineshaft-tab" + i + "-container").style.visibility = "hidden";
         }
+    } else if(page == 4) {
+        for(i = 1; i < 9; i++) {
+            document.getElementById("mineshaft-tab" + i + "-container").style.visibility = "visible";
+        }
+
+        document.getElementById("mineshaft-back-container").style.visibility = "hidden";
+        oreTitle.remove();
+        oreImage.remove();
     }
 }
 
@@ -842,6 +850,8 @@ function miningPage(material) {
     document.getElementById("mineshaft-tab6-container").style.visibility = "hidden";
     document.getElementById("mineshaft-tab7-container").style.visibility = "hidden";
     document.getElementById("mineshaft-tab8-container").style.visibility = "hidden";
+
+    document.getElementById("mineshaft-back-container").style.visibility = "visible";
     if(material == "stone") {
         oreTitle = document.createElement("div");
         oreTitle.id = "ore-title";
@@ -1240,4 +1250,8 @@ function initiateLevelIncrease(task) {
             document.getElementById("level-container").style.visibility = "hidden";
         }, 2000);
     }//Make more tasks, like chemistry, etc.
+}
+
+function initiateATM() {
+    
 }

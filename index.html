@@ -117,6 +117,11 @@
                         <img src="images/back.png" id="mineshaft-tab8-img">
                         <div id="mineshaft-tab8-text">Back</div>
                     </div>
+                        <!--Mineshaft Back Tab-->
+                        <div id="mineshaft-back-container" onclick="back(4)">
+                            <img src="images/back.png" id="mineshaft-back-img">
+                            <div id="mineshaft-back-text">Back</div>
+                        </div>
                 <div id="harvest-tab2-container">
                     <img src="images/woodcutting.png" id="harvest-tab2-img">
                     <div id="harvest-tab2-text">Woodcutting</div>
@@ -150,15 +155,21 @@
             <!--Market Tab-->
 
             <!--Other Tab-->
-            <!--Atm, levels, etc.-->
-            <div id="level-container">
-                <div id="level-name">MINING LEVEL</div>
-                <div id="player-level-xp-container">
-                    <div id="player-level-xp"></div>
-                    <div id="player-level-xp-value">0/50 EXP</div>
-                </div>
-                <div id="player-level">1</div>
+            <div id="other-tab1-container" onclick="initiateATM()">
+                <img src="images/atm.png" id="other-tab1-img">
+                <div id="other-tab1-text">ATM</div>
             </div>
+                <!--Levels-->
+                <div id="level-container">
+                    <div id="level-name">MINING LEVEL</div>
+                    <div id="player-level-xp-container">
+                        <div id="player-level-xp"></div>
+                        <div id="player-level-xp-value">0/50 EXP</div>
+                    </div>
+                    <div id="player-level">1</div>
+                </div>
+                <!--ATM-->
+
             <!--Status/Death State-->
             <div id="status-container">
                 <div id="status-title">Status:</div>
@@ -167,6 +178,6 @@
             </div>
         </div>
         <script src="index.js"></script>
-        <!--Version 0.31.5a 6/2/2021-->
+        <!--Version 0.32a 6/2/2021-->
     </body>
 </html>
