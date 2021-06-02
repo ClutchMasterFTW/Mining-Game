@@ -1226,6 +1226,9 @@ function initiateLevelIncrease(task) {
             document.getElementById("player-level-xp-value").innerHTML = miningLevelEXP + "/" + miningLevelEXPCap + " EXP";
             levelWidth = 0;
             document.getElementById("player-level-xp").style.width = levelWidth + "vw";
+
+            var levelUpSound = new Audio('audio/level up.wav');
+            levelUpSound.play();
         } else {
             miningLevelEXP += 10;
             document.getElementById("player-level-xp-value").innerHTML = miningLevelEXP + "/" + miningLevelEXPCap + " EXP";
